@@ -6,7 +6,6 @@ import java.util.Date;
 
 public class LongStay extends Stay implements PriceInterface {
 
-    private int price;
     private int discount;
     private final int PERCENT_DISCOUNT = 20;
 
@@ -15,16 +14,25 @@ public class LongStay extends Stay implements PriceInterface {
     }
 
     @Override
-    public int getPrice() {
-        return super.getPrice() * getNumberOfNights();
-    }
-
-    @Override
     public boolean eligibleForDiscount() {
-        return false;
+        return true;
     }
 
     public boolean verifyNumberOfNights() {
         return (getNumberOfNights() >= 1 && getNumberOfNights() <=31);
     }
+
+    @Override
+    protected void updatePrice() {
+        discount = (getPrice() * PERCENT_DISCOUNT)/100;
+        int priceAfterDiscount = getPrice() - discount;
+        setPrice(priceAfterDiscount);
+    }
+
+    @Override
+    public void display(){
+        super.display();
+        System.out.println("("+discount+" € de promotion)"  );
+    }
+
 }

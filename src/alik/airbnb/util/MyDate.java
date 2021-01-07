@@ -7,6 +7,12 @@ public class MyDate extends Date {
 
     private static final SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
+    /**
+     * Constructeur de la classe date en format jour mois année
+     * @param day
+     * @param month
+     * @param year
+     */
     public MyDate(int day, int month, int year) {
         super(year - 1900, month - 1, day);
     }

@@ -19,7 +19,7 @@ public class House extends Lodgement {
 
     public void display(){
         displayLodgement();
-        System.out.println("Le logement est maison située " + getAddress());
+        System.out.println("Le logement est une maison située " + getAddress());
         System.out.println("Superficie : " + getSurface() + "m²");
         if(surfaceOfGarden == 0){
             System.out.println("jardin : Non");

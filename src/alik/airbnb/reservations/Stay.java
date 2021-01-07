@@ -12,24 +12,31 @@ public abstract class Stay implements StayInterface{
     private Lodgement lodgement;
     private int numberOfPersons;
 
+    private int price;
+
     public Stay(Date arrivalData, int numberOfNights, Lodgement lodgement, int numberOfPersons) throws Exception {
-        this.numberOfNights = numberOfNights;
-        if(!verifyNumberOfNights()){
+        /*if(!verifyNumberOfNights()){
             System.out.println(numberOfNights);
             throw new Exception("Exception message");
-        }
+        }*/
+        this.numberOfNights = numberOfNights;
         this.arrivalData = arrivalData;
         this.lodgement = lodgement;
         this.numberOfPersons = numberOfPersons;
+
+        price = lodgement.getPrice() * numberOfNights;
+
+        updatePrice();
     }
+
+    public abstract boolean verifyNumberOfNights();
+
+    protected abstract void updatePrice();
 
     @Override
     public boolean verifyArrivalDate() {
         return arrivalData.after(new Date());
     }
-
-
-    public abstract boolean verifyNumberOfNights();
 
     @Override
     public boolean verifyNumberOfPersons() {
@@ -38,17 +45,18 @@ public abstract class Stay implements StayInterface{
 
     public void display(){
         lodgement.display();
-        String date = DateFormatter.DateToString(arrivalData);
-        System.out.println("La date d'arrivée est le " + date + " pour " + numberOfNights + " nuits");
-        System.out.println("Le prix de ce séjour est de " + lodgement.getPrice() + "€");
-    }
-
-    public int getPrice(){
-
-        return lodgement.getPrice();
+        System.out.println("La date d'arrivée est le " + arrivalData + " pour " + numberOfNights + " nuits");
+        System.out.print("Le prix de ce séjour est de " + price + "€ ");
     }
 
     public int getNumberOfNights(){
         return numberOfNights;
+    }
+
+    public int getPrice(){
+        return price;
+    }
+    protected void setPrice(int price){
+        this.price = price;
     }
 }
