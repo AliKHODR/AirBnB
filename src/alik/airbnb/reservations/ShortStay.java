@@ -22,7 +22,7 @@ public class ShortStay extends Stay implements PriceInterface {
 
     @Override
     protected void updatePrice() {
-
+        setPrice(getLodgement().getPrice() * getNumberOfNights());
     }
 
     public void display(){

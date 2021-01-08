@@ -7,6 +7,8 @@ import alik.airbnb.users.Person;
  * class that represents a lodgement
  */
 public abstract class Lodgement {
+
+    private int id = 0;
     private Host host;
     private int price;
     private String address;
@@ -19,6 +21,7 @@ public abstract class Lodgement {
         this.address = address;
         this.surface = surface;
         this.maxNumberOfTraveler = maxNumberOfTraveler;
+        this.id = id++;
     }
 
     protected void displayLodgement(){
@@ -49,6 +52,10 @@ public abstract class Lodgement {
     }
 
     public abstract int getTotalSurface();
+
+    public int getId() {
+        return id;
+    }
 
     public abstract void display();
 

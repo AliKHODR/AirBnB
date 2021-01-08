@@ -24,8 +24,9 @@ public class LongStay extends Stay implements PriceInterface {
 
     @Override
     protected void updatePrice() {
-        discount = (getPrice() * PERCENT_DISCOUNT)/100;
-        int priceAfterDiscount = getPrice() - discount;
+        int initialPrice = getLodgement().getPrice() * getNumberOfNights();
+        discount = (initialPrice * PERCENT_DISCOUNT)/100;
+        int priceAfterDiscount = initialPrice - discount;
         setPrice(priceAfterDiscount);
     }
 

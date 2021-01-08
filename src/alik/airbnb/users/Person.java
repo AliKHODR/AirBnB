@@ -18,4 +18,12 @@ public class Person {
     public void display(){
         System.out.print(firstname + " " + lastname + " (" + age + " ans)");
     }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
 }

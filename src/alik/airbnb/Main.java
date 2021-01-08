@@ -2,6 +2,7 @@ package alik.airbnb;
 
 import alik.airbnb.lodgement.Apartment;
 import alik.airbnb.lodgement.House;
+import alik.airbnb.menu.Menu;
 import alik.airbnb.reservations.LongStay;
 import alik.airbnb.reservations.Reservation;
 import alik.airbnb.reservations.ShortStay;
@@ -10,6 +11,8 @@ import alik.airbnb.users.Host;
 import alik.airbnb.users.Traveler;
 import alik.airbnb.util.MyDate;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.ParseException;
 
 public class Main {
@@ -33,16 +36,30 @@ public class Main {
         //Date date = DateFormatter.StringToDate(string);
         //Stay newStay = new Stay(date, 4, apartment1, 3);
         //newStay.display();
-        MyDate date = new MyDate(15,1,2020);
-        int numberOfDays = 3;
+        MyDate date = new MyDate(20,1,2021);
+        int numberOfDays = 6;
         Stay stay;
         if(numberOfDays > 5){
              stay = new LongStay (date,numberOfDays,apartment1,4);
         }else{
              stay = new ShortStay (date,numberOfDays,apartment1,4);
         }
-        Reservation newReservation = new Reservation(0,traveler1, stay);
-        newReservation.display();
+
+        Reservation newReservation;
+        try{
+            newReservation = new Reservation(0,traveler1, stay);
+            newReservation.createTextFile();
+            newReservation.display();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        FileWriter writer = new FileWriter("./reservations.txt");
+        writer.write("Numéro du voyageur : " + stay.getNumberOfPersons());
+
+        String[] arguments = new String[] {"123"};
+
+        //Menu.main(arguments);
+
 
     }
 

@@ -14,22 +14,18 @@ public abstract class Stay implements StayInterface{
 
     private int price;
 
-    public Stay(Date arrivalData, int numberOfNights, Lodgement lodgement, int numberOfPersons) throws Exception {
-        /*if(!verifyNumberOfNights()){
-            System.out.println(numberOfNights);
-            throw new Exception("Exception message");
-        }*/
+    public Stay(Date arrivalData, int numberOfNights, Lodgement lodgement, int numberOfPersons) {
+
         this.numberOfNights = numberOfNights;
         this.arrivalData = arrivalData;
         this.lodgement = lodgement;
         this.numberOfPersons = numberOfPersons;
 
-        price = lodgement.getPrice() * numberOfNights;
-
         updatePrice();
+
     }
 
-    public abstract boolean verifyNumberOfNights();
+    //public abstract boolean verifyNumberOfNights();
 
     protected abstract void updatePrice();
 
@@ -56,7 +52,20 @@ public abstract class Stay implements StayInterface{
     public int getPrice(){
         return price;
     }
+
+    public Date getArrivalData() {
+        return arrivalData;
+    }
+
     protected void setPrice(int price){
         this.price = price;
+    }
+
+    protected Lodgement getLodgement() {
+        return lodgement;
+    }
+
+    public int getNumberOfPersons() {
+        return numberOfPersons;
     }
 }
