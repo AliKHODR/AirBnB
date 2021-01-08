@@ -51,7 +51,6 @@ public class Menu {
         do{
             try{
                 userInput = scanner.nextInt();
-                //scanner.nextLine();
                 isInteger = true;
 
             }catch (InputMismatchException e){
