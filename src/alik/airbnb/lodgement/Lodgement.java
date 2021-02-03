@@ -8,21 +8,22 @@ import alik.airbnb.users.Person;
  */
 public abstract class Lodgement implements Comparable<Lodgement>{
 
-    private int id = 0;
-    private Host host;
-    private int price;
-    private String address;
+    private final int id = 0;
+    private final Host host;
+    private final int price;
+    private final String address;
     private final int surface;
-    private int maxNumberOfTraveler;
-    private String name;
+    private final int maxNumberOfTraveler;
+    private final String name;
 
-    public Lodgement(Host host, int price, String address, int surface, int maxNumberOfTraveler){
+    public Lodgement(Host host, int price, String address, int surface, int maxNumberOfTraveler, String name){
         this.host = host;
         this.price = price;
         this.address = address;
         this.surface = surface;
         this.maxNumberOfTraveler = maxNumberOfTraveler;
-        this.id = id++;
+        this.name = name;
+        //this.id = id++;
     }
 
     protected void displayLodgement(){
@@ -41,9 +42,6 @@ public abstract class Lodgement implements Comparable<Lodgement>{
         return maxNumberOfTraveler;
     }
 
-    public Host getHost() {
-        return host;
-    }
 
     public int getSurface() {
         return surface;
@@ -53,19 +51,12 @@ public abstract class Lodgement implements Comparable<Lodgement>{
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getAddress() {
         return address;
     }
 
     public abstract int getTotalSurface();
 
-    public int getId() {
-        return id;
-    }
 
     public abstract void display();
 

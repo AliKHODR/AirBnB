@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class ShortStay extends Stay implements PriceInterface {
 
-    public ShortStay(Date arrivalData, int numberOfNights, Lodgement lodgement, int numberOfPersons) throws Exception {
+    public ShortStay(Date arrivalData, int numberOfNights, Lodgement lodgement, int numberOfPersons)  {
         super(arrivalData, numberOfNights, lodgement, numberOfPersons);
     }
 

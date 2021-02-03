@@ -2,6 +2,7 @@ package alik.airbnb.reservations;
 
 import alik.airbnb.util.DateFormatter;
 import alik.airbnb.lodgement.Lodgement;
+import alik.airbnb.util.MyDate;
 
 import java.util.Date;
 
@@ -17,12 +18,10 @@ public abstract class Stay implements StayInterface{
     public Stay(Date arrivalData, int numberOfNights, Lodgement lodgement, int numberOfPersons) {
 
         this.numberOfNights = numberOfNights;
-        this.arrivalData = arrivalData;
+        this.arrivalData = new MyDate(arrivalData);
         this.lodgement = lodgement;
         this.numberOfPersons = numberOfPersons;
-
         updatePrice();
-
     }
 
     //public abstract boolean verifyNumberOfNights();
@@ -54,11 +53,28 @@ public abstract class Stay implements StayInterface{
     }
 
     public Date getArrivalData() {
-        return arrivalData;
+        return new MyDate(arrivalData);
     }
 
     protected void setPrice(int price){
         this.price = price;
+    }
+
+    public void setArrivalData(Date arrivalData) {
+        this.arrivalData = arrivalData;
+    }
+
+    public void setNumberOfNights(int numberOfNights) {
+        this.numberOfNights = numberOfNights;
+    }
+
+    public void setLodgement(Lodgement lodgement) {
+        this.lodgement = lodgement;
+        updatePrice();
+    }
+
+    public void setNumberOfPersons(int numberOfPersons) {
+        this.numberOfPersons = numberOfPersons;
     }
 
     protected Lodgement getLodgement() {

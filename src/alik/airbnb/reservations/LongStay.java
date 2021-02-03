@@ -9,7 +9,7 @@ public class LongStay extends Stay implements PriceInterface {
     private int discount;
     private final int PERCENT_DISCOUNT = 20;
 
-    public LongStay(Date arrivalData, int numberOfNights, Lodgement lodgement, int numberOfPersons) throws Exception {
+    public LongStay(Date arrivalData, int numberOfNights, Lodgement lodgement, int numberOfPersons) {
         super(arrivalData, numberOfNights, lodgement, numberOfPersons);
     }
 

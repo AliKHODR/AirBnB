@@ -3,11 +3,11 @@ package alik.airbnb.lodgement;
 import alik.airbnb.users.Host;
 
 public class Apartment extends Lodgement{
-    private int floor;
-    private int balconySurface;
+    private final int floor;
+    private final int balconySurface;
 
-    public Apartment(Host host, int price, String address, int surface, int maxNumberOfTraveler, int floor, int balconySurface) {
-        super(host, price, address, surface, maxNumberOfTraveler);
+    public Apartment(Host host, int price, String address, int surface, int maxNumberOfTraveler, int floor, int balconySurface, String name) {
+        super(host, price, address, surface, maxNumberOfTraveler, name);
         this.balconySurface = balconySurface;
         this.floor = floor;
     }

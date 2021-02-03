@@ -44,7 +44,7 @@ public class XMLParser extends DefaultHandler {
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
         if(qName.equalsIgnoreCase("Appartement") || qName.equalsIgnoreCase("Maison")){
-            name = attributes.getValue("name");
+            name = attributes.getValue("name") != null ? attributes.getValue("name") : "";
         }
     }
 
@@ -107,13 +107,11 @@ public class XMLParser extends DefaultHandler {
 
         }
         if(qName.equalsIgnoreCase("Appartement")){
-            apartment = new Apartment(host,price,address,surface,maxNumberOfTraveler,floor,balconySurface);
-            if(name != null) apartment.setName(name);
+            apartment = new Apartment(host,price,address,surface,maxNumberOfTraveler,floor,balconySurface,name);
             lodgements.add(apartment);
         }
         if (qName.equalsIgnoreCase("Maison")){
-            house = new House(host,price,address,surface,maxNumberOfTraveler,surfaceOfGarden,hasPool);
-            if(name != null) house.setName(name);
+            house = new House(host,price,address,surface,maxNumberOfTraveler,surfaceOfGarden,hasPool,name);
             lodgements.add(house);
         }
     }

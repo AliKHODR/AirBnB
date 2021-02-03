@@ -4,9 +4,9 @@ package alik.airbnb.users;
 import java.util.Objects;
 
 public class Person {
-    private String firstname;
-    private String lastname;
-    private int age;
+    private final String firstname;
+    private final String lastname;
+    private final int age;
 
     public Person(String firstname, String lastname, int age){
         this.firstname = firstname;

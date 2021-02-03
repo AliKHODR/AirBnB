@@ -4,19 +4,22 @@ import alik.airbnb.users.Person;
 import alik.airbnb.users.Traveler;
 import alik.airbnb.util.MyDate;
 
+import javax.xml.validation.Validator;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;
 
 public class Reservation {
-    private int id;
+    private int id = 0;
     private Stay stay;
     private Traveler traveler;
     private boolean isValidated;
     private Date reservationDate;
 
-    public Reservation(int id,Traveler traveler, Stay stay) throws Exception {
+    public Reservation(Traveler traveler, Stay stay) throws Exception {
+        if(traveler == null) throw new Exception("traveler can't be null");
+        if(stay == null) throw new Exception("traveler can't be null");
         if(!stay.verifyNumberOfPersons()){
             throw new Exception("Le nombre de voyageurs ne peut pas dépasser le Max nomber de personnes d'un logement");
         }
@@ -24,7 +27,7 @@ public class Reservation {
             throw new Exception("La date d'arrivée est inférieur à la date courante");
         }
         this.traveler = traveler;
-        this.id = id;
+        this.id++;
         this.stay = stay;
         reservationDate = new MyDate();
         isValidated = false;
@@ -63,4 +66,13 @@ public class Reservation {
 
     }
 
+    public void setStay(Stay stay) throws Exception {
+        if(stay == null) throw new Exception("traveler can't be null");
+        this.stay = stay;
+    }
+
+    public void setTraveler(Traveler traveler) throws Exception {
+        if(traveler == null) throw new Exception("traveler can't be null");
+        this.traveler = traveler;
+    }
 }

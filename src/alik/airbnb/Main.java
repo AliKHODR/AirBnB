@@ -30,13 +30,13 @@ public class Main {
         //newReservation.display();
         //host1.display();
 
-        House house1 = new House(host1, 80, "81 Rue Colbert, 37000 Tours", 140, 4,500,true);
-        Apartment apartment1 = new Apartment(host1, 80, "81 Rue Colbert, 37000 Tours", 140, 4,1,12);
+        //House house1 = new House(host1, 80, "81 Rue Colbert, 37000 Tours", 140, 4,500,true);
+        //Apartment apartment1 = new Apartment(host1, 80, "81 Rue Colbert, 37000 Tours", 140, 4,1,12);
         //String string = "05/12/2016";
         //Date date = DateFormatter.StringToDate(string);
         //Stay newStay = new Stay(date, 4, apartment1, 3);
         //newStay.display();
-        MyDate date = new MyDate(20,1,2021);
+        /*MyDate date = new MyDate(20,1,2021);
         int numberOfDays = 6;
         Stay stay;
         if(numberOfDays > 5){
@@ -54,7 +54,7 @@ public class Main {
             System.out.println(e.getMessage());
         }
         FileWriter writer = new FileWriter("./reservations.txt");
-        writer.write("Numéro du voyageur : " + stay.getNumberOfPersons());
+        writer.write("Numéro du voyageur : " + stay.getNumberOfPersons());*/
 
         String[] arguments = new String[] {"123"};
 

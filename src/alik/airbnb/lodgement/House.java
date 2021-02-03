@@ -4,11 +4,11 @@ import alik.airbnb.users.Host;
 
 public class House extends Lodgement {
 
-    private int surfaceOfGarden;
-    private boolean hasPool;
+    private final int surfaceOfGarden;
+    private final boolean hasPool;
 
-    public House(Host host, int price, String address, int surface, int maxNumberOfTraveler, int surfaceOfGarden, boolean hasPool) {
-        super(host, price, address, surface, maxNumberOfTraveler);
+    public House(Host host, int price, String address, int surface, int maxNumberOfTraveler, int surfaceOfGarden, boolean hasPool, String name) {
+        super(host, price, address, surface, maxNumberOfTraveler, name);
         this.surfaceOfGarden = surfaceOfGarden;
         this.hasPool = hasPool;
     }

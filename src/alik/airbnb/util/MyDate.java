@@ -21,6 +21,10 @@ public class MyDate extends Date {
         super();
     }
 
+    public MyDate(Date arrivalData) {
+
+    }
+
     /**
      * method that takes a date and return a string
      * @return a date of type String formatted as dd/MM/yyyy
