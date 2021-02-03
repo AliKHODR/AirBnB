@@ -16,6 +16,7 @@ public class XMLParser extends DefaultHandler {
     private int price;
     private int surface;
     private String address;
+    private String name;
     private int maxNumberOfTraveler;
     private int balconySurface;
     private int floor;
@@ -42,24 +43,14 @@ public class XMLParser extends DefaultHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-        /*if(qName.equalsIgnoreCase("Logements")){
-            lodgements.add(lodgement);
+        if(qName.equalsIgnoreCase("Appartement") || qName.equalsIgnoreCase("Maison")){
+            name = attributes.getValue("name");
         }
-        if(qName.equalsIgnoreCase("Appartement")){
-            lodgement = new Apartment(host,price,address,surface,maxNumberOfTraveler,floor,balconySurface);
-        }
-        if (qName.equalsIgnoreCase("Maison")){
-            lodgement = new House(host,price,address,surface,maxNumberOfTraveler,surfaceOfGarden,hasPool);
-        }
-        if(qName.equalsIgnoreCase("host")){
-            host = new Host(firstname,lastname,age,responseTime);
-        }*/
     }
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
         if(qName.equalsIgnoreCase("nom")){
-
             firstname = elementValue;
         }
         if(qName.equalsIgnoreCase(("prenom"))){
@@ -117,10 +108,12 @@ public class XMLParser extends DefaultHandler {
         }
         if(qName.equalsIgnoreCase("Appartement")){
             apartment = new Apartment(host,price,address,surface,maxNumberOfTraveler,floor,balconySurface);
+            if(name != null) apartment.setName(name);
             lodgements.add(apartment);
         }
         if (qName.equalsIgnoreCase("Maison")){
             house = new House(host,price,address,surface,maxNumberOfTraveler,surfaceOfGarden,hasPool);
+            if(name != null) house.setName(name);
             lodgements.add(house);
         }
     }

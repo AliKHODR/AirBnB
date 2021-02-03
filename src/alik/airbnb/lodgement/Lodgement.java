@@ -22,13 +22,13 @@ public abstract class Lodgement implements Comparable<Lodgement>{
         this.address = address;
         this.surface = surface;
         this.maxNumberOfTraveler = maxNumberOfTraveler;
-        this.name = host.getFirstname() + id;
         this.id = id++;
     }
 
     protected void displayLodgement(){
         host.display();
         System.out.println();
+        System.out.println(name);
         //System.out.println("Le logement est situé " + address);
         //System.out.println("Superficie : " + surface + "m²");
     }
@@ -51,6 +51,10 @@ public abstract class Lodgement implements Comparable<Lodgement>{
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAddress() {
