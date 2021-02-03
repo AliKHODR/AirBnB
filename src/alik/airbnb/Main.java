@@ -21,13 +21,13 @@ public class Main {
         Traveler traveler1 = new Traveler("ali", "khodr" , 28);
         Host host1 = new Host("Maxime", "Albert" , 25,12);
 
-        /*Lodgement newLodgement = new Lodgement(host1, 80, "81 Rue Colbert, 37000 Tours", 140, 4);
-        String string = "05/12/2016";
-        Date date = DateFormatter.StringToDate(string);
-        Stay newStay = new Stay(date, 4, newLodgement, 3);
-        Person traveler = new Person("John", "Doe" , 20);
-        Reservation newReservation = new Reservation(traveler1, true, newStay);
-        newReservation.display();*/
+        //Lodgement newLodgement = new Lodgement(host1, 80, "81 Rue Colbert, 37000 Tours", 140, 4);
+        //String string = "05/12/2016";
+        //Date date = DateFormatter.StringToDate(string);
+        //Stay newStay = new Stay(date, 4, newLodgement, 3);
+        //Person traveler = new Person("John", "Doe" , 20);
+        //Reservation newReservation = new Reservation(traveler1, true, newStay);
+        //newReservation.display();
         //host1.display();
 
         House house1 = new House(host1, 80, "81 Rue Colbert, 37000 Tours", 140, 4,500,true);
@@ -58,9 +58,8 @@ public class Main {
 
         String[] arguments = new String[] {"123"};
 
-        //Menu.main(arguments);
+        Menu.main(arguments);
 
 
     }
-
 }

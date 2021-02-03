@@ -10,7 +10,7 @@ public class GestionHotes {
     static void listHosts() {
         System.out.println("-------------------------------------");
         System.out.println("Liste des hôtes ");
-        Menu.displayArray(Menu.hosts);
+        Menu.displayHosts(Menu.hosts);
         System.out.println("Saisir une option : ");
         System.out.println("1 : Ajouter un hôte");
         System.out.println("2 : Supprimer un hôte");

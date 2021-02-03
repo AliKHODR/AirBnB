@@ -35,6 +35,6 @@ public class Apartment extends Lodgement{
         }else{
             System.out.println("Balcon : Oui" + "("+balconySurface+"m²)");
         }
-
     }
+
 }

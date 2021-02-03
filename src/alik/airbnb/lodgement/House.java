@@ -32,4 +32,5 @@ public class House extends Lodgement {
             System.out.println("Piscine : Non");
         }
     }
+
 }

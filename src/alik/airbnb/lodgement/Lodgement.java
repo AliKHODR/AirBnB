@@ -6,7 +6,7 @@ import alik.airbnb.users.Person;
 /**
  * class that represents a lodgement
  */
-public abstract class Lodgement {
+public abstract class Lodgement implements Comparable<Lodgement>{
 
     private int id = 0;
     private Host host;
@@ -14,6 +14,7 @@ public abstract class Lodgement {
     private String address;
     private final int surface;
     private int maxNumberOfTraveler;
+    private String name;
 
     public Lodgement(Host host, int price, String address, int surface, int maxNumberOfTraveler){
         this.host = host;
@@ -21,6 +22,7 @@ public abstract class Lodgement {
         this.address = address;
         this.surface = surface;
         this.maxNumberOfTraveler = maxNumberOfTraveler;
+        this.name = host.getFirstname() + id;
         this.id = id++;
     }
 
@@ -47,6 +49,10 @@ public abstract class Lodgement {
         return surface;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -58,5 +64,10 @@ public abstract class Lodgement {
     }
 
     public abstract void display();
+
+    @Override
+    public int compareTo(Lodgement o) {
+        return  o.price > price ? 1 : 0;
+    }
 
 }
