@@ -27,10 +27,10 @@ public class Reservation {
             throw new Exception("La date d'arrivée est inférieur à la date courante");
         }
         this.traveler = traveler;
-        this.id++;
         this.stay = stay;
+        isValidated = checkValidation();
         reservationDate = new MyDate();
-        isValidated = false;
+        this.id++;
     }
 
     public void display(){
@@ -40,6 +40,7 @@ public class Reservation {
         traveler.display();
         System.out.print(" a fait une réservation chez ");
         stay.display();
+        System.out.println(isValidated);
     }
 
     public void createTextFile() throws Exception {
@@ -74,5 +75,17 @@ public class Reservation {
     public void setTraveler(Traveler traveler) throws Exception {
         if(traveler == null) throw new Exception("traveler can't be null");
         this.traveler = traveler;
+    }
+
+    public void setValidated(boolean validated) {
+        if(validated == checkValidation()){
+            isValidated = validated;
+        }
+
+    }
+
+    private boolean checkValidation() {
+
+        return stay.verifyNumberOfPersons() && stay.verifyArrivalDate();
     }
 }

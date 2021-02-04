@@ -9,19 +9,18 @@ public class MyDate extends Date {
 
     /**
      * Constructeur de la classe date en format jour mois année
-     * @param day
-     * @param month
-     * @param year
+     * @param day between 1 and 31
+     * @param month between 1 ana 21
+     * @param year format yyyy (ex: 2020)
      */
     public MyDate(int day, int month, int year) {
         super(year - 1900, month - 1, day);
     }
 
     public MyDate(){
-        super();
     }
 
-    public MyDate(Date arrivalData) {
+    public MyDate(Date date) {
 
     }
 

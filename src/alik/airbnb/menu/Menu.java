@@ -1,10 +1,12 @@
 package alik.airbnb.menu;
 
+import alik.airbnb.generic.CompareMultiple;
 import alik.airbnb.generic.Generic;
 import alik.airbnb.lodgement.Apartment;
 import alik.airbnb.lodgement.House;
 import alik.airbnb.lodgement.Lodgement;
 import alik.airbnb.reservations.Reservation;
+import alik.airbnb.reservations.SendEmailReservation;
 import alik.airbnb.reservations.ShortStay;
 import alik.airbnb.reservations.Stay;
 import alik.airbnb.users.Host;
@@ -13,13 +15,12 @@ import alik.airbnb.util.MyDate;
 import alik.airbnb.util.XMLParser;
 import org.xml.sax.SAXException;
 
-import javax.xml.crypto.Data;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
+import java.security.cert.CertificateParsingException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -48,28 +49,21 @@ public class Menu {
             scanner.nextLine();
         }
 
-        Apartment apartment = findLodgmentByNameWithGenericity("Appartement 1");
+        //Apartment apartment = findLodgmentByNameWithGenericity("Bardu0");
         //apartment.display();
         //Generic<Lodgement> lodgementGeneric = new Generic<>(lodgments.get(2),lodgments.get(1));
         //Lodgement moreExpensiveLodgment = lodgementGeneric.getLower();
         //System.out.println(moreExpensiveLodgment.getPrice());
-        //String string = "05/12/2016";
-        //MyDate date = new MyDate(20,1,2021);
-        //Stay stay = new ShortStay(date,4,apartment,4);
-        //Date date1 = stay.getArrivalData();
-        //date1.setYear(2022);
-        //date.setYear(2022);
-        //stay.setLodgement(lodgments.get(2));
-        //stay.display();
 
-        Stay stay = null;
-        Traveler traveler = null;
-        try{
-            Reservation reservation = new Reservation(traveler,stay);
-            reservation.display();
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
+        //CompareMultiple<Lodgement> lodgementCompareMultiple = new CompareMultiple<>(lodgments);
+        //Lodgement moreExpensiveLodgment = lodgementCompareMultiple.getLower();
+        //System.out.println(moreExpensiveLodgment.getPrice());
+        MyDate date = new MyDate(20,2,2021);
+        Stay newStay = new ShortStay(date, 4, lodgments.get(0), 3);
+        Traveler traveler1 = new Traveler("ali", "khodr" , 28);
+        Reservation reservation = new Reservation(traveler1,newStay);
+        SendEmailReservation.sendEmail(reservation);
+        reservation.display();
         //listMenu();
         scanner.close();
     }

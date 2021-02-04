@@ -19,12 +19,11 @@ public abstract class Stay implements StayInterface{
 
         this.numberOfNights = numberOfNights;
         this.arrivalData = new MyDate(arrivalData);
+        this.arrivalData = arrivalData;
         this.lodgement = lodgement;
         this.numberOfPersons = numberOfPersons;
         updatePrice();
     }
-
-    //public abstract boolean verifyNumberOfNights();
 
     protected abstract void updatePrice();
 

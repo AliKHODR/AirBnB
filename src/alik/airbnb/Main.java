@@ -36,16 +36,16 @@ public class Main {
         //Date date = DateFormatter.StringToDate(string);
         //Stay newStay = new Stay(date, 4, apartment1, 3);
         //newStay.display();
-        /*MyDate date = new MyDate(20,1,2021);
-        int numberOfDays = 6;
-        Stay stay;
-        if(numberOfDays > 5){
+        //MyDate date = new MyDate(20,1,2021);
+        //int numberOfDays = 6;
+        //Stay stay;
+        /*if(numberOfDays > 5){
              stay = new LongStay (date,numberOfDays,apartment1,4);
         }else{
              stay = new ShortStay (date,numberOfDays,apartment1,4);
-        }
+        }*/
 
-        Reservation newReservation;
+        /*Reservation newReservation;
         try{
             newReservation = new Reservation(0,traveler1, stay);
             newReservation.createTextFile();

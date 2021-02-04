@@ -3,7 +3,7 @@ package alik.airbnb.users;
 
 import java.util.Objects;
 
-public class Person {
+public class Person implements Comparable<Person>{
     private final String firstname;
     private final String lastname;
     private final int age;
@@ -41,4 +41,8 @@ public class Person {
         return age == person.age && Objects.equals(firstname, person.firstname) && Objects.equals(lastname, person.lastname);
     }
 
+    @Override
+    public int compareTo(Person person) {
+        return 0;
+    }
 }
