@@ -77,6 +77,10 @@ public class Reservation {
         this.traveler = traveler;
     }
 
+    public Stay getStay() throws CloneNotSupportedException {
+        return (Stay) stay.clone();
+    }
+
     public void setValidated(boolean validated) {
         if(validated == checkValidation()){
             isValidated = validated;
@@ -85,7 +89,6 @@ public class Reservation {
     }
 
     private boolean checkValidation() {
-
         return stay.verifyNumberOfPersons() && stay.verifyArrivalDate();
     }
 }

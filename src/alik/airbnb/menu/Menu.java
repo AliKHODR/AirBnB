@@ -5,13 +5,12 @@ import alik.airbnb.generic.Generic;
 import alik.airbnb.lodgement.Apartment;
 import alik.airbnb.lodgement.House;
 import alik.airbnb.lodgement.Lodgement;
-import alik.airbnb.reservations.Reservation;
-import alik.airbnb.reservations.SendEmailReservation;
-import alik.airbnb.reservations.ShortStay;
-import alik.airbnb.reservations.Stay;
+import alik.airbnb.reservations.*;
 import alik.airbnb.users.Host;
 import alik.airbnb.users.Traveler;
+import alik.airbnb.util.AirBnBData;
 import alik.airbnb.util.MyDate;
+import alik.airbnb.util.Search;
 import alik.airbnb.util.XMLParser;
 import org.xml.sax.SAXException;
 
@@ -58,12 +57,28 @@ public class Menu {
         //CompareMultiple<Lodgement> lodgementCompareMultiple = new CompareMultiple<>(lodgments);
         //Lodgement moreExpensiveLodgment = lodgementCompareMultiple.getLower();
         //System.out.println(moreExpensiveLodgment.getPrice());
-        MyDate date = new MyDate(20,2,2021);
-        Stay newStay = new ShortStay(date, 4, lodgments.get(0), 3);
-        Traveler traveler1 = new Traveler("ali", "khodr" , 28);
-        Reservation reservation = new Reservation(traveler1,newStay);
-        SendEmailReservation.sendEmail(reservation);
-        reservation.display();
+        //MyDate date = new MyDate(20,2,2021);
+
+        //Stay newStay = new ShortStay(date, 4, lodgments.get(0), 3);
+        //Stay newStay = StayFactory.getStay(date,lodgments.get(0),3,3);
+        //newStay.display();
+        //Traveler traveler1 = new Traveler("ali", "khodr" , 28);
+        //Reservation reservation = new Reservation(traveler1,newStay);
+        //reservation.display();
+
+        //AirBnBData data = AirBnBData.getInstance();
+        //ArrayList<Host> hosts = data.getHostsList();
+        //displayHosts(hosts);
+        /**
+         * Builder
+         */
+        Search search = new Search.SearchBuilder(6).setMinPricePerNight(200).setHasPool(true).build();
+        ArrayList<Lodgement> result = search.result();
+
+        for(Lodgement lodgement: result){
+            lodgement.display();
+        }
+
         //listMenu();
         scanner.close();
     }

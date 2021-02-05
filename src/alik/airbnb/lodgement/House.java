@@ -17,6 +17,14 @@ public class House extends Lodgement {
         return surfaceOfGarden + getSurface();
     }
 
+    public boolean getHasPool(){
+        return hasPool;
+    }
+
+    public int getSurfaceOfGarden() {
+        return surfaceOfGarden;
+    }
+
     public void display(){
         displayLodgement();
         System.out.println("Le logement est une maison située " + getAddress());

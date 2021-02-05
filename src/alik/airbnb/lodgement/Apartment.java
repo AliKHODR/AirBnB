@@ -16,6 +16,10 @@ public class Apartment extends Lodgement{
         return balconySurface + getSurface();
     }
 
+    public int getBalconySurface() {
+        return balconySurface;
+    }
+
     public void display(){
         displayLodgement();
         System.out.print("Le logement est maison située " + getAddress());

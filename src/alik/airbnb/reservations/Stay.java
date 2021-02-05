@@ -6,7 +6,7 @@ import alik.airbnb.util.MyDate;
 
 import java.util.Date;
 
-public abstract class Stay implements StayInterface{
+public abstract class Stay implements StayInterface,Cloneable{
 
     private Date arrivalData;
     private int numberOfNights;
@@ -82,5 +82,17 @@ public abstract class Stay implements StayInterface{
 
     public int getNumberOfPersons() {
         return numberOfPersons;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Stay stay = null;
+        try {
+            stay = (Stay) super.clone();
+        }catch (CloneNotSupportedException cnse){
+            // Ne devrait jamais arriver car nous implémentons l'interface Cloneable
+            cnse.printStackTrace(System.err);
+        }
+        return stay;
     }
 }

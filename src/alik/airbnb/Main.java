@@ -2,6 +2,7 @@ package alik.airbnb;
 
 import alik.airbnb.lodgement.Apartment;
 import alik.airbnb.lodgement.House;
+import alik.airbnb.lodgement.Lodgement;
 import alik.airbnb.menu.Menu;
 import alik.airbnb.reservations.LongStay;
 import alik.airbnb.reservations.Reservation;
@@ -10,10 +11,14 @@ import alik.airbnb.reservations.Stay;
 import alik.airbnb.users.Host;
 import alik.airbnb.users.Traveler;
 import alik.airbnb.util.MyDate;
+import alik.airbnb.util.Search;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
 
 public class Main {
 
@@ -55,11 +60,26 @@ public class Main {
         }
         FileWriter writer = new FileWriter("./reservations.txt");
         writer.write("Numéro du voyageur : " + stay.getNumberOfPersons());*/
+        ArrayList<String> noms = new ArrayList<>();
+        noms.add("Nicolas");
+        noms.add("Aurélie");
+        noms.add("Emilie");
+        noms.add("Sébastian");
+        noms.add("julie");
+        noms.add("Audrey");
+        noms.add("Alexande");
+        noms.add("Julien");
+
+        Stream<String> nomFiltre = noms.stream().filter(e -> e.startsWith("A"));
+
+        //nomFiltre.forEach(System.out::println);
+
+        Search search = new Search.SearchBuilder(6).build();
+        List<Lodgement> result = search.result2();
+        result.forEach(Lodgement::display);
 
         String[] arguments = new String[] {"123"};
 
-        Menu.main(arguments);
-
-
+        //Menu.main(arguments);
     }
 }

@@ -8,7 +8,7 @@ import alik.airbnb.users.Person;
  */
 public abstract class Lodgement implements Comparable<Lodgement>{
 
-    private final int id = 0;
+    private int id = 0;
     private final Host host;
     private final int price;
     private final String address;
@@ -23,15 +23,13 @@ public abstract class Lodgement implements Comparable<Lodgement>{
         this.surface = surface;
         this.maxNumberOfTraveler = maxNumberOfTraveler;
         this.name = name;
-        //this.id = id++;
+        id++;
     }
 
     protected void displayLodgement(){
         host.display();
         System.out.println();
         System.out.println(name);
-        //System.out.println("Le logement est situé " + address);
-        //System.out.println("Superficie : " + surface + "m²");
     }
 
     public int getPrice(){
